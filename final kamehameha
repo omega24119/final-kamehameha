@@ -54,6 +54,19 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Doubl
           print("button pressed")
     end    
 })
+
+mainTab:AddButton({
+  Name = "morex1000power",
+  Callback = function()
+      local args = {
+        [1] = 1000
+      }
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("DoublePower"):FireServer(unpack(args))
+          print("button pressed")
+    end    
+})
+
 mainTab:AddButton({
   Name= "instant 10b power",
   Callback = function()
