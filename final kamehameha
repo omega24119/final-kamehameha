@@ -56,16 +56,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Doubl
 })
 
 mainTab:AddButton({
-  Name = "morex1000power",
-  Callback = function()
-      local args = {
-        [1] = 1000
-      }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("DoublePower"):FireServer(unpack(args))
-          print("button pressed")
-    end    
-})
 
 mainTab:AddButton({
   Name= "instant 10b power",
@@ -164,7 +155,7 @@ function dopower ()
       while getgenv().power == true do
 
                    local args = {
-                                  [1] = "x3 Power",
+                                  [1] = "x5 Power",
                                   [2] = 30
 }
 
