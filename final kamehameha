@@ -1,4 +1,4 @@
- local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 --window
 local Window = OrionLib:MakeWindow({Name = "All universe hub ", HidePremium = false, IntroText = "All universe hub", SaveConfig = true, ConfigFolder = "OrionTest"})
@@ -55,7 +55,7 @@ game:GetService("ReplicatedStorage").Remotes.DoublePower:FireServer(unpack(args)
     end    
 })
 
-mainTab:AddButton({
+
 
 
 mainTab:AddButton({
@@ -124,7 +124,12 @@ getgenv().daily = false
 getgenv().rebirth = false
 getgenv().power = false
 getgenv().punch = false
-
+getgenv().sword= false
+getgenv().staff = false
+getgenv().slayer = false
+getgenv().un= false
+getgenv().blade = false
+getgenv().soul = false
 --function 
 function dodaily()
           while getgenv().daily == true do
@@ -137,7 +142,7 @@ end
 function dorebirth()
            while getgenv().rebirth == true do
                       local args = {
-                                [1] = 5
+                                [1] = 1
 }
 
                 game:GetService("ReplicatedStorage").Remotes.Rebirth:InvokeServer(unpack(args))
@@ -161,45 +166,89 @@ function dopower ()
 end
 
 function dopunch()              
-       while getgenv().punch do
+       while getgenv().punch == true do
+                  local args = {
+                              [1] = 
+}
+
+                   game:GetService("Players").LocalPlayer.Character.Punch.Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
+
+function dopunch()              
+       while getgenv().sword == true do
                   local args = {
                               [1] = 1
 }
 
-                   game:GetService("Players").LocalPlayer.Character.Punch.Event:FireServer(unpack(args));
-                                  local args = {
-                             [1] = 3
-}
+                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cosmic Sword").Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
 
-                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Cosmic Sword").Event:FireServer(unpack(args));
-                                 local args = {
-                               [1] = 1
-}
-
-                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Spiritual Staff").Event:FireServer(unpack(args));
-                                local args = {
-                              [1] = 2
-}
-
-                   game:GetService("Players").LocalPlayer.Character.Dragonslayer.Event:FireServer(unpack(args));
-                                  local args = {
+                               
+function dostaff()              
+       while getgenv().staff == true do
+                  local args = {
                               [1] = 1
 }
 
-                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Universe Destroyer").Event:FireServer(unpack(args));
-
+                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Spiritual Staff").Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
+                   
+  function doslayer()              
+       while getgenv().slayer == true do
                   local args = {
-                              [1] = 3
+                              [1] = 1                 
+                                
 }
 
-                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Ancient Dragon Blade").Event:FireServer(unpack(args));
-                      local args = {
-                              [1] = 3
+                   game:GetService("Players").LocalPlayer.Character.Dragonslayer.Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
+
+ function doun()              
+       while getgenv().un == true do
+                  local args = {
+                              [1] = 1
+}
+
+                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Universe Destroyer").Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
+                   
+function doblade()              
+       while getgenv().blade == true do
+                  local args = {
+                              [1] = 1
+                  
+}
+
+                   game:GetService("Players").LocalPlayer.Character:FindFirstChild("Ancient Dragon Blade").Event:FireServer(unpack(args))
+                   
+                   wait(0.001)
+       end
+end
+                  
+  function dosoul()              
+       while getgenv().soul == true do
+                  local args = {
+                              [1] = 1
 }
 
                    game:GetService("Players").LocalPlayer.Character:FindFirstChild("Soul Crusher").Event:FireServer(unpack(args))
 
-                wait(0.005)
+                wait(0.001)
        end
 end
 
@@ -243,9 +292,67 @@ serectTab:AddToggle({
     end
   end})
   
+  autogainTab:AddToggle({
+  Name = "sword",
+  Default = false,
+  Callback = function(bool)
+    getgenv().sword= bool
+    if bool then 
+      dosword()
+    end
+  end})
+  
+  autogainTab:AddToggle({
+  Name = "staff",
+  Default = false,
+  Callback = function(bool)
+    getgenv().staff= bool
+    if bool then 
+      dostaff()
+    end
+  end})
+  
+  autogainTab:AddToggle({
+  Name = "Demon Slayer",
+  Default = false,
+  Callback = function(bool)
+    getgenv().slayer= bool
+    if bool then 
+      doslayer()
+    end
+  end})
+  
+  autogainTab:AddToggle({
+  Name = "Universe Destroyer",
+  Default = false,
+  Callback = function(bool)
+    getgenv().un= bool
+    if bool then 
+      doun()
+    end
+  end})
+ autogainTab:AddToggle({
+  Name = "Ancient Dragon Blade",
+  Default = false,
+  Callback = function(bool)
+    getgenv().blade= bool
+    if bool then 
+      doblade()
+    end
+  end})
+  
+  autogainTab:AddToggle({
+  Name = "Soul Crusher",
+  Default = false,
+  Callback = function(bool)
+    getgenv().soul= bool
+    if bool then 
+      dosoul()
+    end
+  end})
 
 
-creditTab:AddParagraph("scripters","Akira(baby♥️) & illumi(the great)")
+creditTab:AddParagraph("scripters","Akira(my love♥️) & illumi(the great)")
 creditTab:AddParagraph("donater","dustubs(donated 300 robux)")
 
 creditTab:AddButton({
