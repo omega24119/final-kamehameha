@@ -134,7 +134,8 @@ getgenv().soul = false
 --function 
 function dodaily()
           while getgenv().daily == true do
-                  game:GetService("ReplicatedStorage"):WaitForChild("DailyEvents"):WaitForChild("ClaimDaily"):FireServer()
+                  game:GetService("ReplicatedStorage").DailyEvents.ClaimDaily:FireServer()
+
 
                 wait(0.05)
        end
